@@ -21,7 +21,7 @@ def main():
 
     opts = parser.parse_args()
 
-    computer = REGISTRY[opts.day].get(opts.part)
+    computer, c_kwargs = REGISTRY[opts.day].get(opts.part)
     if computer is None:
         print(f'Unsupported part {opts.part} for {opts.day}', file=sys.stderr)
 
@@ -31,7 +31,7 @@ def main():
     if not input_path.exists():
         print(f'{input_path} is missing', file=sys.stderr)
 
-    print(run_computer(input_path, computer))
+    print(run_computer(input_path, computer, **c_kwargs))
 
 
 if __name__ == '__main__':
