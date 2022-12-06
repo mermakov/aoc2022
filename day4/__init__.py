@@ -4,7 +4,7 @@ from part import as_computer, Part
 
 
 Assignment = tuple[int, int, int, int]
-AssignmentPredicate = Callable[Assignment, bool]
+AssignmentPredicate = Callable[[Assignment], bool]
 
 
 def _calc(lines: Iterator[str], predicate: AssignmentPredicate) -> int:
